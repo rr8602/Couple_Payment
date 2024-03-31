@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <!-- Bootstrap CDN 추가 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- 달력 스타일 및 스크립트 추가 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1>결제 내역 조회</h1>
+        <form th:action="@{/search}" method="post" style="margin-top: 40px" class="form-inline justify-content-center">
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="startDate" style="margin-right: 10px">Start Date : </label>
+                <input type="text" id="startDate" name="startDate" class="form-control" data-input>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="endDate" style="margin-right: 10px">End Date : </label>
+                <input type="text" id="endDate" name="endDate" class="form-control" data-input>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </form>
+    </div>
+</div>
+<script>
+    flatpickr('#startDate', {
+        dateFormat: 'Y-m-d',  // 날짜 형식 지정
+        wrap: false             // 날짜 입력 필드 감싸기
+    });
+
+    flatpickr('#endDate', {
+        dateFormat: 'Y-m-d',  // 날짜 형식 지정
+        wrap: false             // 날짜 입력 필드 감싸기
+    });
+</script>
+<!-- Bootstrap JS 및 Popper.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6iW16Kuuw8hFcCJo3RM5/J96EwGJMQnwAASzB"
+        crossorigin="anonymous"></script>
+</body>
+</html>
